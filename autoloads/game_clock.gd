@@ -1,4 +1,3 @@
-class_name GameClock
 extends Node
 
 signal week_passed(week_number: int)

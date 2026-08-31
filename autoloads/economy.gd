@@ -1,4 +1,3 @@
-class_name Economy
 extends Node
 
 signal currency_changed(new_amount: int)

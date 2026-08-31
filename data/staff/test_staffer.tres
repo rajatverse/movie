@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StaffData" load_steps=2 format=3 uid="uid://test_staffer_tres"]
+
+[ext_resource type="Script" path="res://resources/staff_data.gd" id="1_staff"]
+
+[resource]
+script = ExtResource("1_staff")
+staff_name = "Alex Mercer"
+primary_skill = "editing"
+skill_level = 15.0
+salary = 500
+trait_name = "Fast Worker"
