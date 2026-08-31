@@ -1,0 +1,164 @@
+[gd_scene load_steps=4 format=3 uid="uid://hub_main_scene"]
+
+[ext_resource type="Script" path="res://scenes/main/hub.gd" id="1_hub"]
+[ext_resource type="PackedScene" uid="uid://contracts_list_scene" path="res://scenes/ui/contracts_list.tscn" id="2_contracts"]
+[ext_resource type="PackedScene" uid="uid://staff_roster_scene" path="res://scenes/ui/staff_roster.tscn" id="3_staff"]
+
+[node name="Hub" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hub")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopBar" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TopBar"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TopBar/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="WeekLbl" type="Label" parent="VBoxContainer/TopBar/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Week: 1"
+
+[node name="CurrencyLbl" type="Label" parent="VBoxContainer/TopBar/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Balance: 1000"
+
+[node name="AdvanceWeekBtn" type="Button" parent="VBoxContainer/TopBar/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Advance Week"
+
+[node name="MainContent" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/MainContent"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+tabs_visible = false
+
+[node name="Contracts" parent="VBoxContainer/MainContent/TabContainer" instance=ExtResource("2_contracts")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Staff" parent="VBoxContainer/MainContent/TabContainer" instance=ExtResource("3_staff")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="BottomNav" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/BottomNav"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/BottomNav/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="BtnOffice" type="Button" parent="VBoxContainer/BottomNav/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "Office"
+
+[node name="BtnMovies" type="Button" parent="VBoxContainer/BottomNav/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "Movies"
+
+[node name="BtnPeople" type="Button" parent="VBoxContainer/BottomNav/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "People"
+
+[node name="BtnFinance" type="Button" parent="VBoxContainer/BottomNav/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "Finance"
+
+[node name="BtnNews" type="Button" parent="VBoxContainer/BottomNav/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "News"
+
+[node name="NotificationPanel" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -80.0
+offset_right = 260.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="NotificationPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NotificationPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="NotificationPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 15
+text = "Notification text here"
+autowrap_mode = 2
+vertical_alignment = 1
+
+[node name="CloseBtn" type="Button" parent="NotificationPanel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(70, 40)
+layout_mode = 2
+size_flags_vertical = 4
+text = "OK"

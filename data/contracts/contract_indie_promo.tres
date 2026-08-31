@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ContractData" load_steps=2 format=3 uid="uid://contract_indie_promo"]
+
+[ext_resource type="Script" path="res://resources/contract_data.gd" id="1_contract"]
+
+[resource]
+script = ExtResource("1_contract")
+contract_title = "Indie Game Teaser Edit"
+task_type = "editing"
+payout = 850
+deadline_weeks = 2
+difficulty = 1.0

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ContractData" load_steps=2 format=3 uid="uid://contract_vfx_intro"]
+
+[ext_resource type="Script" path="res://resources/contract_data.gd" id="1_contract"]
+
+[resource]
+script = ExtResource("1_contract")
+contract_title = "Sci-Fi Title Sequence VFX"
+task_type = "graphics"
+payout = 1600
+deadline_weeks = 3
+difficulty = 1.3

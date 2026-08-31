@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ContractData" load_steps=2 format=3 uid="uid://contract_jingle_score"]
+
+[ext_resource type="Script" path="res://resources/contract_data.gd" id="1_contract"]
+
+[resource]
+script = ExtResource("1_contract")
+contract_title = "Commercial Synth Audio Score"
+task_type = "music"
+payout = 1100
+deadline_weeks = 2
+difficulty = 1.1

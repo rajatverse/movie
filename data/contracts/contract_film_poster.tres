@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ContractData" load_steps=2 format=3 uid="uid://contract_film_poster"]
+
+[ext_resource type="Script" path="res://resources/contract_data.gd" id="1_contract"]
+
+[resource]
+script = ExtResource("1_contract")
+contract_title = "Film Festival Graphic Keyart"
+task_type = "graphics"
+payout = 950
+deadline_weeks = 1
+difficulty = 1.2
