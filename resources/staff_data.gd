@@ -6,3 +6,4 @@ extends Resource
 @export var skill_level: float = 10.0
 @export var salary: int = 0
 @export var trait_name: String = ""  # e.g. "Fast Worker", "Perfectionist"
+@export var is_busy: bool = false

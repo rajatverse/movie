@@ -35,8 +35,17 @@ func generate_random_staff() -> StaffData:
 	hire_staff(new_staff)
 	return new_staff
 
+func get_available_staff() -> Array[StaffData]:
+	var available: Array[StaffData] = []
+	for staff in roster:
+		if not staff.is_busy:
+			available.append(staff)
+	return available
+
 func assign_to_contract(staff: StaffData, contract: ContractData) -> void:
+	staff.is_busy = true
 	print("Assigned %s to contract '%s'" % [staff.staff_name, contract.contract_title])
+	roster_changed.emit()
 
 func apply_skill_growth(staff: StaffData) -> void:
 	var trait_modifier: float = 1.0

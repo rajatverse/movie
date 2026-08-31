@@ -43,6 +43,7 @@ func assign_to_contract(staff: StaffData, contract: ContractData) -> void:
 		"deadline_week": end_w
 	}
 	
+	StaffManager.assign_to_contract(staff, contract)
 	print("Assigned %s to '%s'. Start: W%d, Deadline: W%d" % [staff.staff_name, contract.contract_title, start_w, end_w])
 	available_contracts_changed.emit()
 	active_assignments_changed.emit()
@@ -79,6 +80,8 @@ func deliver_contract(contract: ContractData, on_time: bool) -> void:
 	
 	if assigned_staff:
 		StaffManager.apply_skill_growth(assigned_staff)
+		assigned_staff.is_busy = false
+		StaffManager.roster_changed.emit()
 		
 	active_assignments.erase(contract)
 	active_assignments_changed.emit()

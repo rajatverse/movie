@@ -31,6 +31,9 @@ func _render_roster() -> void:
 
 	for staff in StaffManager.roster:
 		var card: PanelContainer = PanelContainer.new()
+		if staff.is_busy:
+			card.modulate = Color(0.8, 0.8, 0.85, 1.0)  # Dim slightly to show busy status visually
+			
 		var margin: MarginContainer = MarginContainer.new()
 		margin.add_theme_constant_override("margin_left", 12)
 		margin.add_theme_constant_override("margin_top", 12)
@@ -40,16 +43,31 @@ func _render_roster() -> void:
 		var vbox: VBoxContainer = VBoxContainer.new()
 		vbox.add_theme_constant_override("separation", 6)
 		
+		var header_hbox: HBoxContainer = HBoxContainer.new()
+		
 		var name_lbl: Label = Label.new()
 		var trait_str: String = " [%s]" % staff.trait_name if staff.trait_name != "" else ""
 		name_lbl.text = "%s%s" % [staff.staff_name, trait_str]
 		name_lbl.add_theme_font_size_override("font_size", 18)
+		name_lbl.size_flags_horizontal = SIZE_EXPAND_FILL
+		
+		var status_badge: Label = Label.new()
+		if staff.is_busy:
+			status_badge.text = "[ BUSY ]"
+			status_badge.add_theme_color_override("font_color", Color(1.0, 0.4, 0.4))
+		else:
+			status_badge.text = "[ Free ]"
+			status_badge.add_theme_color_override("font_color", Color(0.4, 0.9, 0.4))
+		status_badge.add_theme_font_size_override("font_size", 14)
+		
+		header_hbox.add_child(name_lbl)
+		header_hbox.add_child(status_badge)
 		
 		var details_lbl: Label = Label.new()
 		details_lbl.text = "Skill: %s (Level %.1f) | Salary: %d / wk" % [staff.primary_skill.capitalize(), staff.skill_level, staff.salary]
 		details_lbl.add_theme_font_size_override("font_size", 14)
 		
-		vbox.add_child(name_lbl)
+		vbox.add_child(header_hbox)
 		vbox.add_child(details_lbl)
 		margin.add_child(vbox)
 		card.add_child(margin)

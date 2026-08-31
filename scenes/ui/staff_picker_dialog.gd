@@ -23,14 +23,17 @@ func _render_staff_list() -> void:
 	for child in staff_list_container.get_children():
 		child.queue_free()
 		
-	if StaffManager.roster.is_empty():
+	var available_staff: Array[StaffData] = StaffManager.get_available_staff()
+		
+	if available_staff.is_empty():
 		var empty_lbl: Label = Label.new()
-		empty_lbl.text = "No staff hired yet! Hire staff first in Staff tab."
+		empty_lbl.text = "No available staff! (All hired staff are currently busy on contracts)."
+		empty_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		empty_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		staff_list_container.add_child(empty_lbl)
 		return
 		
-	for staff in StaffManager.roster:
+	for staff in available_staff:
 		var card: PanelContainer = PanelContainer.new()
 		var margin: MarginContainer = MarginContainer.new()
 		margin.add_theme_constant_override("margin_left", 10)

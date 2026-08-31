@@ -36,3 +36,4 @@
 it here with a one-line reason — keeps the GDD from silently going stale)
 
 - Contract late delivery uses placeholder 90% payout (`payout * 0.9`) pending final GDD late-penalty curve implementation.
+- Added staff availability lock (is_busy property) to prevent assigning one staff member to multiple contracts simultaneously.
