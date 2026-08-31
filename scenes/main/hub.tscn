@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://hub_main_scene"]
+[gd_scene load_steps=6 format=3 uid="uid://hub_main_scene"]
 
 [ext_resource type="Script" path="res://scenes/main/hub.gd" id="1_hub"]
-[ext_resource type="PackedScene" uid="uid://studio_tower_scene" path="res://scenes/main/studio_tower.tscn" id="2_tower"]
-[ext_resource type="PackedScene" uid="uid://contracts_list_scene" path="res://scenes/ui/contracts_list.tscn" id="3_contracts"]
-[ext_resource type="PackedScene" uid="uid://staff_roster_scene" path="res://scenes/ui/staff_roster.tscn" id="4_staff"]
+[ext_resource type="PackedScene" uid="uid://movie_wizard_scene" path="res://scenes/ui/movie_wizard.tscn" id="2_wizard"]
+[ext_resource type="PackedScene" uid="uid://studio_tower_scene" path="res://scenes/main/studio_tower.tscn" id="3_tower"]
+[ext_resource type="PackedScene" uid="uid://contracts_list_scene" path="res://scenes/ui/contracts_list.tscn" id="4_contracts"]
+[ext_resource type="PackedScene" uid="uid://staff_roster_scene" path="res://scenes/ui/staff_roster.tscn" id="5_staff"]
 
 [node name="Hub" type="Control"]
 layout_mode = 3
@@ -68,19 +69,24 @@ grow_vertical = 2
 current_tab = 0
 tabs_visible = false
 
-[node name="Office" parent="VBoxContainer/MainContent/TabContainer" instance=ExtResource("2_tower")]
+[node name="Movies" parent="VBoxContainer/MainContent/TabContainer" instance=ExtResource("2_wizard")]
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="Contracts" parent="VBoxContainer/MainContent/TabContainer" instance=ExtResource("3_contracts")]
+[node name="Office" parent="VBoxContainer/MainContent/TabContainer" instance=ExtResource("3_tower")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="Staff" parent="VBoxContainer/MainContent/TabContainer" instance=ExtResource("4_staff")]
+[node name="Contracts" parent="VBoxContainer/MainContent/TabContainer" instance=ExtResource("4_contracts")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
+
+[node name="Staff" parent="VBoxContainer/MainContent/TabContainer" instance=ExtResource("5_staff")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
 
 [node name="BottomNav" type="PanelContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 65)

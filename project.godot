@@ -3,16 +3,20 @@
 ; since the parameters that go here are not all obvious.
 ;
 ; Format:
-;   [section]
-;   key=value
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
 
 config_version=5
+
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
 config/name="MovieTycoon"
 run/main_scene="res://scenes/main/hub.tscn"
-config/features=PackedStringArray("4.3", "Mobile")
+config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -22,6 +26,7 @@ Economy="*res://autoloads/economy.gd"
 StaffManager="*res://autoloads/staff_manager.gd"
 ContractManager="*res://autoloads/contract_manager.gd"
 OfficeManager="*res://autoloads/office_manager.gd"
+MovieManager="*res://autoloads/movie_manager.gd"
 
 [display]
 
@@ -31,13 +36,12 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
 
-[rendering]
-
-textures/vram_compression/import_etc2_astc=true
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
-
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
-pointing/emulate_mouse_from_touch=true
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

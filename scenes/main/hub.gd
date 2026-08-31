@@ -22,15 +22,16 @@ func _ready() -> void:
 	GameClock.week_passed.connect(_on_week_passed)
 	Economy.currency_changed.connect(_on_currency_changed)
 	
-	# Connect notification signal
+	# Connect notification signals
 	ContractManager.contract_delivered.connect(_on_contract_delivered)
+	MovieManager.production_completed.connect(_on_production_completed)
 	notification_close_btn.pressed.connect(_on_notification_close)
 	notification_panel.visible = false
 	
-	# Connect bottom navigation
-	btn_office.pressed.connect(func(): tab_container.current_tab = 0)
-	btn_movies.pressed.connect(func(): tab_container.current_tab = 1)
-	btn_people.pressed.connect(func(): tab_container.current_tab = 2)
+	# Connect bottom navigation (Movies=0, Office=1, Contracts=2, Staff=3)
+	btn_movies.pressed.connect(func(): tab_container.current_tab = 0)
+	btn_office.pressed.connect(func(): tab_container.current_tab = 1)
+	btn_people.pressed.connect(func(): tab_container.current_tab = 3)
 	btn_finance.pressed.connect(func(): print("Finance feature not yet implemented"))
 	btn_news.pressed.connect(func(): print("News feature not yet implemented"))
 	
@@ -52,6 +53,12 @@ func _on_advance_week_pressed() -> void:
 func _on_contract_delivered(title: String, payout: int, on_time: bool) -> void:
 	var status_str: String = "ON TIME! Payout: %d" % payout if on_time else "LATE (0.9x penalty)! Payout: %d" % payout
 	notification_label.text = "Contract Completed: '%s'\nResult: %s" % [title, status_str]
+	notification_panel.visible = true
+
+func _on_production_completed(movie: MovieData) -> void:
+	notification_label.text = "Production Complete!\n'%s' is ready for release!\nMass Appeal: %.1f | Critical: %.1f" % [
+		movie.movie_title, movie.dna_mass_appeal, movie.dna_critical_appeal
+	]
 	notification_panel.visible = true
 
 func _on_notification_close() -> void:

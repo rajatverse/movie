@@ -1,0 +1,309 @@
+[gd_scene load_steps=2 format=3 uid="uid://movie_wizard_scene"]
+
+[ext_resource type="Script" path="res://scenes/ui/movie_wizard.gd" id="1_wizard"]
+
+[node name="MovieWizard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wizard")
+
+[node name="WizardPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="WizardPanel"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+# ── STEP 0: Genre ─────────────────────────────────────────────────────────
+[node name="GenrePanel" type="PanelContainer" parent="WizardPanel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="WizardPanel/VBox/GenrePanel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TitleLbl" type="Label" parent="WizardPanel/VBox/GenrePanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Step 1 — Choose Genre"
+horizontal_alignment = 1
+
+[node name="GenreGrid" type="GridContainer" parent="WizardPanel/VBox/GenrePanel/VBox"]
+layout_mode = 2
+columns = 2
+
+[node name="BtnAction" type="Button" parent="WizardPanel/VBox/GenrePanel/VBox/GenreGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 60)
+theme_override_font_sizes/font_size = 18
+text = "Action"
+
+[node name="BtnComedy" type="Button" parent="WizardPanel/VBox/GenrePanel/VBox/GenreGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 60)
+theme_override_font_sizes/font_size = 18
+text = "Comedy"
+
+[node name="BtnDrama" type="Button" parent="WizardPanel/VBox/GenrePanel/VBox/GenreGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 60)
+theme_override_font_sizes/font_size = 18
+text = "Drama"
+
+[node name="BtnSciFi" type="Button" parent="WizardPanel/VBox/GenrePanel/VBox/GenreGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 60)
+theme_override_font_sizes/font_size = 18
+text = "Sci-Fi"
+
+[node name="BtnThriller" type="Button" parent="WizardPanel/VBox/GenrePanel/VBox/GenreGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 60)
+theme_override_font_sizes/font_size = 18
+text = "Thriller"
+
+[node name="BtnHorror" type="Button" parent="WizardPanel/VBox/GenrePanel/VBox/GenreGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 60)
+theme_override_font_sizes/font_size = 18
+text = "Horror"
+
+[node name="NextBtn" type="Button" parent="WizardPanel/VBox/GenrePanel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 55)
+theme_override_font_sizes/font_size = 18
+text = "Next →"
+
+# ── STEP 1: Budget ────────────────────────────────────────────────────────
+[node name="BudgetPanel" type="PanelContainer" parent="WizardPanel/VBox"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="WizardPanel/VBox/BudgetPanel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="TitleLbl" type="Label" parent="WizardPanel/VBox/BudgetPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Step 2 — Set Budget"
+horizontal_alignment = 1
+
+[node name="BudgetLbl" type="Label" parent="WizardPanel/VBox/BudgetPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Budget: 500   (Balance: 1000)"
+horizontal_alignment = 1
+
+[node name="BudgetSlider" type="HSlider" parent="WizardPanel/VBox/BudgetPanel/VBox"]
+layout_mode = 2
+min_value = 100.0
+max_value = 1000.0
+step = 100.0
+value = 500.0
+
+[node name="BudgetWarning" type="Label" parent="WizardPanel/VBox/BudgetPanel/VBox"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Insufficient funds!"
+horizontal_alignment = 1
+
+[node name="NextBtn" type="Button" parent="WizardPanel/VBox/BudgetPanel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 55)
+theme_override_font_sizes/font_size = 18
+text = "Next →"
+
+# ── STEP 2: Cast ──────────────────────────────────────────────────────────
+[node name="CastPanel" type="PanelContainer" parent="WizardPanel/VBox"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="WizardPanel/VBox/CastPanel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TitleLbl" type="Label" parent="WizardPanel/VBox/CastPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Step 3 — Assemble Cast (optional)"
+horizontal_alignment = 1
+
+[node name="CastScroll" type="ScrollContainer" parent="WizardPanel/VBox/CastPanel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 200)
+
+[node name="CastListVBox" type="VBoxContainer" parent="WizardPanel/VBox/CastPanel/VBox/CastScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AddCastBtn" type="Button" parent="WizardPanel/VBox/CastPanel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 50)
+theme_override_font_sizes/font_size = 16
+text = "Add Cast Member"
+
+[node name="NextBtn" type="Button" parent="WizardPanel/VBox/CastPanel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 55)
+theme_override_font_sizes/font_size = 18
+text = "Next →"
+
+# ── STEP 3: Director ──────────────────────────────────────────────────────
+[node name="DirectorPanel" type="PanelContainer" parent="WizardPanel/VBox"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="WizardPanel/VBox/DirectorPanel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="TitleLbl" type="Label" parent="WizardPanel/VBox/DirectorPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Step 4 — Assign Director"
+horizontal_alignment = 1
+
+[node name="HintLbl" type="Label" parent="WizardPanel/VBox/DirectorPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "(Placeholder: enter any name — real director system comes in a later step)"
+autowrap_mode = 2
+horizontal_alignment = 1
+
+[node name="DirectorInput" type="LineEdit" parent="WizardPanel/VBox/DirectorPanel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 55)
+theme_override_font_sizes/font_size = 18
+placeholder_text = "Director's name…"
+
+[node name="NextBtn" type="Button" parent="WizardPanel/VBox/DirectorPanel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 55)
+theme_override_font_sizes/font_size = 18
+text = "Next →"
+
+# ── STEP 4: Confirm ───────────────────────────────────────────────────────
+[node name="ConfirmPanel" type="PanelContainer" parent="WizardPanel/VBox"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="WizardPanel/VBox/ConfirmPanel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="TitleLbl" type="Label" parent="WizardPanel/VBox/ConfirmPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Step 5 — Confirm Greenlight"
+horizontal_alignment = 1
+
+[node name="SummaryLbl" type="Label" parent="WizardPanel/VBox/ConfirmPanel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
+text = "Summary appears here…"
+autowrap_mode = 2
+
+[node name="GreenlightBtn" type="Button" parent="WizardPanel/VBox/ConfirmPanel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 60)
+theme_override_font_sizes/font_size = 20
+text = "✓ GREENLIGHT MOVIE"
+
+[node name="BackBtn" type="Button" parent="WizardPanel/VBox/ConfirmPanel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 50)
+theme_override_font_sizes/font_size = 16
+text = "← Start Over"
+
+# ── STEP 5: Progress ──────────────────────────────────────────────────────
+[node name="ProgressPanel" type="PanelContainer" parent="WizardPanel/VBox"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="WizardPanel/VBox/ProgressPanel"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TitleLbl" type="Label" parent="WizardPanel/VBox/ProgressPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "🎬 Production Underway"
+horizontal_alignment = 1
+
+[node name="ProgressLbl" type="Label" parent="WizardPanel/VBox/ProgressPanel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 17
+text = "Loading…"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="WizardPanel/VBox/ProgressPanel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 28)
+min_value = 0.0
+max_value = 100.0
+value = 0.0
+
+[node name="HintLbl" type="Label" parent="WizardPanel/VBox/ProgressPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Advance weeks on the top bar to speed up production."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+# ── STEP 6: DNA Results ───────────────────────────────────────────────────
+[node name="DnaPanel" type="PanelContainer" parent="WizardPanel/VBox"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="WizardPanel/VBox/DnaPanel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="TitleLbl" type="Label" parent="WizardPanel/VBox/DnaPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "🧬 Movie DNA Results"
+horizontal_alignment = 1
+
+[node name="DnaResultLbl" type="Label" parent="WizardPanel/VBox/DnaPanel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
+text = "DNA values will appear here after production."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="OkBtn" type="Button" parent="WizardPanel/VBox/DnaPanel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 60)
+theme_override_font_sizes/font_size = 18
+text = "Start Next Production"

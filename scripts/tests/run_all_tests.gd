@@ -5,6 +5,7 @@ const EconomyTestScript = preload("res://scripts/tests/economy_test.gd")
 const StaffManagerTestScript = preload("res://scripts/tests/staff_manager_test.gd")
 const ContractManagerTestScript = preload("res://scripts/tests/contract_manager_test.gd")
 const OfficeManagerTestScript = preload("res://scripts/tests/office_manager_test.gd")
+const MovieManagerTestScript = preload("res://scripts/tests/movie_manager_test.gd")
 
 func _ready() -> void:
 	print("==============================================")
@@ -44,8 +45,15 @@ func _ready() -> void:
 	total_passes += office_res["passes"]
 	total_fails += office_res["fails"]
 	
+	var movie_test = MovieManagerTestScript.new()
+	add_child(movie_test)
+	var movie_res = movie_test.run_all()
+	total_passes += movie_res["passes"]
+	total_fails += movie_res["fails"]
+	
 	print("\n==============================================")
 	print("  TOTAL RESULTS: %d PASSED, %d FAILED" % [total_passes, total_fails])
 	print("==============================================")
 	
 	get_tree().quit(total_fails)
+
