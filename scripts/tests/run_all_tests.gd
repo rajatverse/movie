@@ -4,6 +4,7 @@ const GameClockTestScript = preload("res://scripts/tests/game_clock_test.gd")
 const EconomyTestScript = preload("res://scripts/tests/economy_test.gd")
 const StaffManagerTestScript = preload("res://scripts/tests/staff_manager_test.gd")
 const ContractManagerTestScript = preload("res://scripts/tests/contract_manager_test.gd")
+const OfficeManagerTestScript = preload("res://scripts/tests/office_manager_test.gd")
 
 func _ready() -> void:
 	print("==============================================")
@@ -36,6 +37,12 @@ func _ready() -> void:
 	var contract_res = contract_test.run_all()
 	total_passes += contract_res["passes"]
 	total_fails += contract_res["fails"]
+	
+	var office_test = OfficeManagerTestScript.new()
+	add_child(office_test)
+	var office_res = office_test.run_all()
+	total_passes += office_res["passes"]
+	total_fails += office_res["fails"]
 	
 	print("\n==============================================")
 	print("  TOTAL RESULTS: %d PASSED, %d FAILED" % [total_passes, total_fails])

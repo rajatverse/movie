@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="OfficeData" load_steps=2 format=3 uid="uid://office_tier_1"]
+
+[ext_resource type="Script" path="res://resources/office_data.gd" id="1_office"]
+
+[resource]
+script = ExtResource("1_office")
+floor_level = 1
+max_staff_capacity = 3
+max_simultaneous_projects = 1
+upgrade_cost = 2000

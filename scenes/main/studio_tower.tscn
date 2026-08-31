@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3 uid="uid://studio_tower_scene"]
+
+[ext_resource type="Script" path="res://scenes/main/studio_tower.gd" id="1_tower"]
+
+[node name="StudioTower" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tower")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HeaderPanel" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="VBoxContainer/HeaderPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="HBox" type="HBoxContainer" parent="VBoxContainer/HeaderPanel/Margin"]
+layout_mode = 2
+
+[node name="StatsLabel" type="Label" parent="VBoxContainer/HeaderPanel/Margin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Studio Tower: Floor 1
+Staff Cap: 0/3 | Active Projects: 0/1"
+vertical_alignment = 1
+
+[node name="UpgradeButton" type="Button" parent="VBoxContainer/HeaderPanel/Margin/HBox"]
+custom_minimum_size = Vector2(180, 50)
+layout_mode = 2
+size_flags_vertical = 4
+text = "Upgrade Tower ($2000)"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TowerStackContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1

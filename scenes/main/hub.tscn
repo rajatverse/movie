@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://hub_main_scene"]
+[gd_scene load_steps=5 format=3 uid="uid://hub_main_scene"]
 
 [ext_resource type="Script" path="res://scenes/main/hub.gd" id="1_hub"]
-[ext_resource type="PackedScene" uid="uid://contracts_list_scene" path="res://scenes/ui/contracts_list.tscn" id="2_contracts"]
-[ext_resource type="PackedScene" uid="uid://staff_roster_scene" path="res://scenes/ui/staff_roster.tscn" id="3_staff"]
+[ext_resource type="PackedScene" uid="uid://studio_tower_scene" path="res://scenes/main/studio_tower.tscn" id="2_tower"]
+[ext_resource type="PackedScene" uid="uid://contracts_list_scene" path="res://scenes/ui/contracts_list.tscn" id="3_contracts"]
+[ext_resource type="PackedScene" uid="uid://staff_roster_scene" path="res://scenes/ui/staff_roster.tscn" id="4_staff"]
 
 [node name="Hub" type="Control"]
 layout_mode = 3
@@ -67,14 +68,19 @@ grow_vertical = 2
 current_tab = 0
 tabs_visible = false
 
-[node name="Contracts" parent="VBoxContainer/MainContent/TabContainer" instance=ExtResource("2_contracts")]
+[node name="Office" parent="VBoxContainer/MainContent/TabContainer" instance=ExtResource("2_tower")]
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="Staff" parent="VBoxContainer/MainContent/TabContainer" instance=ExtResource("3_staff")]
+[node name="Contracts" parent="VBoxContainer/MainContent/TabContainer" instance=ExtResource("3_contracts")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
+
+[node name="Staff" parent="VBoxContainer/MainContent/TabContainer" instance=ExtResource("4_staff")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
 
 [node name="BottomNav" type="PanelContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 65)
@@ -102,7 +108,7 @@ text = "Office"
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 14
-text = "Movies"
+text = "Contracts"
 
 [node name="BtnPeople" type="Button" parent="VBoxContainer/BottomNav/MarginContainer/HBoxContainer"]
 layout_mode = 2

@@ -21,6 +21,7 @@ GameClock="*res://autoloads/game_clock.gd"
 Economy="*res://autoloads/economy.gd"
 StaffManager="*res://autoloads/staff_manager.gd"
 ContractManager="*res://autoloads/contract_manager.gd"
+OfficeManager="*res://autoloads/office_manager.gd"
 
 [display]
 

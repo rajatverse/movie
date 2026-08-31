@@ -8,6 +8,12 @@ func run_all() -> Dictionary:
 	passes = 0
 	fails = 0
 	print("\n=== RUNNING STAFF MANAGER TESTS ===")
+	StaffManager.roster.clear()
+	ContractManager.active_assignments.clear()
+	if OfficeManager and OfficeManager.tiers.size() > 0:
+		OfficeManager.current_tier_index = 0
+		OfficeManager.current_office = OfficeManager.tiers[0]
+		
 	test_hire_staff()
 	test_skill_growth_diminishing_returns()
 	test_staff_locking_fix()
@@ -23,6 +29,9 @@ func assert_true(condition: bool, message: String) -> void:
 		fails += 1
 
 func test_hire_staff() -> void:
+	StaffManager.roster.clear()
+	ContractManager.active_assignments.clear()
+	
 	var initial_size: int = StaffManager.roster.size()
 	var test_staff: StaffData = StaffData.new()
 	test_staff.staff_name = "Test Worker"
@@ -54,6 +63,9 @@ func test_skill_growth_diminishing_returns() -> void:
 	assert_true(abs(senior_staff.skill_level - expected_level_high) < 0.001, "High skill level (90.0) grew to expected diminishing-returns value (90.20)")
 
 func test_staff_locking_fix() -> void:
+	StaffManager.roster.clear()
+	ContractManager.active_assignments.clear()
+	
 	var staff1: StaffData = StaffData.new()
 	staff1.staff_name = "Alice Lock"
 	staff1.primary_skill = "editing"

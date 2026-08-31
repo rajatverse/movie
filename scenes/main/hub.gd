@@ -29,8 +29,8 @@ func _ready() -> void:
 	
 	# Connect bottom navigation
 	btn_office.pressed.connect(func(): tab_container.current_tab = 0)
-	btn_movies.pressed.connect(func(): print("Movies feature not yet implemented"))
-	btn_people.pressed.connect(func(): tab_container.current_tab = 1)
+	btn_movies.pressed.connect(func(): tab_container.current_tab = 1)
+	btn_people.pressed.connect(func(): tab_container.current_tab = 2)
 	btn_finance.pressed.connect(func(): print("Finance feature not yet implemented"))
 	btn_news.pressed.connect(func(): print("News feature not yet implemented"))
 	

@@ -30,7 +30,12 @@ func load_seed_contracts() -> void:
 				
 	available_contracts_changed.emit()
 
-func assign_to_contract(staff: StaffData, contract: ContractData) -> void:
+func assign_to_contract(staff: StaffData, contract: ContractData) -> bool:
+	var max_proj: int = OfficeManager.get_max_simultaneous_projects()
+	if active_assignments.size() >= max_proj:
+		print("Cannot assign contract '%s': Max simultaneous project capacity (%d/%d) reached! Upgrade Studio Tower." % [contract.contract_title, active_assignments.size(), max_proj])
+		return false
+		
 	if contract in available_contracts:
 		available_contracts.erase(contract)
 	
@@ -47,6 +52,7 @@ func assign_to_contract(staff: StaffData, contract: ContractData) -> void:
 	print("Assigned %s to '%s'. Start: W%d, Deadline: W%d" % [staff.staff_name, contract.contract_title, start_w, end_w])
 	available_contracts_changed.emit()
 	active_assignments_changed.emit()
+	return true
 
 func _on_week_passed(current_week: int) -> void:
 	var contracts_to_deliver: Array[ContractData] = []

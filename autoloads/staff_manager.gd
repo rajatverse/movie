@@ -5,17 +5,29 @@ signal roster_changed
 var roster: Array[StaffData] = []
 
 const FIRST_NAMES: Array[String] = ["Morgan", "Sam", "Jordan", "Taylor", "Avery", "Riley", "Casey", "Dakota", "Quinn", "Reese"]
-const LAST_NAMES: Array[String] = ["Vance", "River", "Blake", "Reed", "Brooks", "Skyler", "Hayes", "Harper", "Sterling", "Ellis"]
+const LAST_NAMES: Array[String] = ["Vance", "River", "Blake", "Reed", "Brooks", "Skyler", "Harper", "Sterling", "Ellis"]
 const SKILL_TYPES: Array[String] = ["editing", "graphics", "music", "writing"]
 const TRAIT_NAMES: Array[String] = ["Fast Worker", "Perfectionist", "Creative", "Meticulous", "Passionate"]
 
-func hire_staff(data: StaffData) -> void:
+func hire_staff(data: StaffData) -> bool:
+	var max_cap: int = OfficeManager.get_max_staff_capacity()
+	if roster.size() >= max_cap:
+		print("Cannot hire %s: Office staff capacity (%d/%d) reached! Upgrade Studio Tower." % [data.staff_name, roster.size(), max_cap])
+		return false
+		
 	if data not in roster:
 		roster.append(data)
 		print("Hired staff member: %s (Skill: %.1f, Salary: %d)" % [data.staff_name, data.skill_level, data.salary])
 		roster_changed.emit()
+		return true
+	return false
 
 func generate_random_staff() -> StaffData:
+	var max_cap: int = OfficeManager.get_max_staff_capacity()
+	if roster.size() >= max_cap:
+		print("Cannot generate staff: Office staff capacity (%d/%d) reached!" % [roster.size(), max_cap])
+		return null
+		
 	var first_name: String = FIRST_NAMES[randi() % FIRST_NAMES.size()]
 	var last_name: String = LAST_NAMES[randi() % LAST_NAMES.size()]
 	var staff_name: String = "%s %s" % [first_name, last_name]
@@ -32,8 +44,9 @@ func generate_random_staff() -> StaffData:
 	new_staff.salary = salary
 	new_staff.trait_name = trait_name
 	
-	hire_staff(new_staff)
-	return new_staff
+	if hire_staff(new_staff):
+		return new_staff
+	return null
 
 func get_available_staff() -> Array[StaffData]:
 	var available: Array[StaffData] = []
