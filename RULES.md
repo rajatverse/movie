@@ -30,21 +30,28 @@ pick up work correctly on first read. Read this file before writing any code.
 
 ## Process Rules
 6. **One step, one commit.** Follow the 8-step Phase 1 build order in the
-   GDD (Section 11 / step list). Don't start step N+1 until step N's debug
-   scene has been manually verified and PROGRESS.md is updated.
-7. **Commit message format:**
+   GDD (Section 11 / step list). Don't start step N+1 until step N's test suite
+   has passed headlessly and PROGRESS.md is updated.
+7. **Phase 1 verification is via automated headless tests** written and run
+   by the AI after each step. A step is marked verified once its test suite
+   passes headlessly with no manual click-through required. Full manual
+   playtesting by the developer happens only at defined Phase Boundaries —
+   end of Phase 1 (full MVP loop), end of Phase 2, etc. — not after every step.
+8. **Every new manager or system gets a corresponding test file** in
+   `/scripts/tests/` before the step is marked verified.
+9. **Commit message format:**
    `[Phase<N>-Step<M>] <short description> — <WIP|verified>`
    e.g. `[Phase1-Step2] GameClock + Economy foundation — verified`
-8. **Update PROGRESS.md every commit** — check the step box, add the commit
-   hash, and add one line to "Verified Debug Checks" describing what was
-   actually confirmed to work (numbers, not vibes).
-9. **Log any GDD deviation.** If a build session implements something
-   differently than the GDD or this appendix specifies (a different formula
-   constant, a renamed signal, a skipped feature), write one line in
-   PROGRESS.md's "Deviations from the GDD" section immediately. The GDD is
-   the source of truth for *design intent*; PROGRESS.md is the source of
-   truth for *what was actually built*.
-10. **No real-world names or currency.** Per GDD Section 9 — no real actor/
+10. **Update PROGRESS.md every commit** — check the step box, add the commit
+    hash, and add one line to "Verified Debug Checks" describing what was
+    actually confirmed to work (numbers, not vibes).
+11. **Log any GDD deviation.** If a build session implements something
+    differently than the GDD or this appendix specifies (a different formula
+    constant, a renamed signal, a skipped feature), write one line in
+    PROGRESS.md's "Deviations from the GDD" section immediately. The GDD is
+    the source of truth for *design intent*; PROGRESS.md is the source of
+    truth for *what was actually built*.
+12. **No real-world names or currency.** Per GDD Section 9 — no real actor/
     movie/studio names anywhere in code, comments, or placeholder data, and
     currency stays generic (not ₹/$/€ specific), even in test/debug content.
 

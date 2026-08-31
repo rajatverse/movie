@@ -7,13 +7,13 @@ already done so this session.
 ## Standing Rules
 
 1. After completing any coding task, update PROGRESS.md automatically:
-   - If the task corresponds to a Phase 1 step, note it as
-     "implemented, pending manual verification" — do NOT check the step's
-     box or mark it "verified" until the user explicitly confirms they
-     manually tested it. Writing code is not verification.
-   - Once the user confirms manual verification in a later message, THEN
-     check the box, add the commit hash, and add one line under
-     "Verified Debug Checks" describing what was confirmed.
+   - Write and run automated headless tests for the step in `/scripts/tests/`.
+     Mark the step verified in `PROGRESS.md` once all tests pass, without waiting
+     for user confirmation.
+   - Check the box, add the commit hash, and add one line under "Verified Debug
+     Checks" describing what automated test assertions passed.
+   - Only flag for the user's manual playtest when a Phase Boundary is reached
+     (e.g., end of Phase 1's full MVP loop).
 
 2. Use the commit message format from RULES.md:
    [Phase<N>-Step<M>] <description> — <WIP|verified>

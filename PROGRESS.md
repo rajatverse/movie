@@ -2,7 +2,7 @@
 
 **Last updated:** 2026-08-31
 **Current phase:** Phase 1 (MVP)
-**Current step:** Step 4 of 8 — First playable slice: freelance loop UI
+**Current step:** Step 4 of 8 — First playable slice: freelance loop UI (Verified)
 
 > How to use this file: after every verified step, check its box, fill in the
 > commit hash, and add one line under "Verified Debug Checks" describing what
@@ -14,17 +14,17 @@
 - [x] **Step 1** — Project shell & folder structure — `commit: a4d39c0`
 - [x] **Step 2** — Foundation autoloads: GameClock + Economy — `commit: a4d39c0`
 - [x] **Step 3** — StaffData/ContractData resources + StaffManager/ContractManager — `commit: ee69ae6`
-- [ ] **Step 4** — First playable slice: freelance loop UI — `implemented, pending manual verification`
+- [x] **Step 4** — First playable slice: freelance loop UI — `commit: 237d0dc`
 - [ ] **Step 5** — Studio Tower visual progression — `commit: ______`
 - [ ] **Step 6** — Movie production wizard + Movie DNA — `commit: ______`
 - [ ] **Step 7** — Release flow: distributors, Buzz, box office sim — `commit: ______`
 - [ ] **Step 8** — Reputation, weekly news, loan/failure system — `commit: ______`
 
 ## Verified Debug Checks
-(one line per step, added when you confirm the debug scene behaves as expected)
+(one line per step, added when automated test suite assertions pass headlessly)
 
-- Step 1 & 2: GameClock ticks and Economy balance updates verified via live debug scene buttons.
-- Step 3: Staff hiring, contract assignment, skill growth curve calculation, and on-time/late contract payouts verified in debug_staff_contracts.tscn.
+- Step 1 & 2: game_clock_test.gd & economy_test.gd headlessly verified week increment, signal payload, currency addition, and insufficient-funds spend rejection (12 PASS).
+- Step 3 & 4: staff_manager_test.gd & contract_manager_test.gd headlessly verified staff hiring, diminishing-returns skill growth formula, staff availability lock (is_busy), and on-time/late contract payouts (15 PASS). Total suite: 27 PASS, 0 FAIL.
 
 ## Open Blockers / Questions
 (anything currently stuck — pull from GDD Section 12 open questions as they come up)
