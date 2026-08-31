@@ -15,7 +15,7 @@
 - [x] **Step 2** — Foundation autoloads: GameClock + Economy — `commit: a4d39c0`
 - [x] **Step 3** — StaffData/ContractData resources + StaffManager/ContractManager — `commit: ee69ae6`
 - [x] **Step 4** — First playable slice: freelance loop UI — `commit: 237d0dc`
-- [x] **Step 5** — Studio Tower visual progression — `commit: 2c97b20`
+- [x] **Step 5** — Studio Tower visual progression — `commit: af1c641`
 - [ ] **Step 6** — Movie production wizard + Movie DNA — `commit: ______`
 - [ ] **Step 7** — Release flow: distributors, Buzz, box office sim — `commit: ______`
 - [ ] **Step 8** — Reputation, weekly news, loan/failure system — `commit: ______`
