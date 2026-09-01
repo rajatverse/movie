@@ -1,0 +1,251 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/world/studio_world.gd" id="1_2b22j"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="2_hunx7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_apyr4"]
+albedo_color = Color(0.7, 0.6, 0.5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xli2w"]
+albedo_color = Color(0.85, 0.9, 0.95, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5eijy"]
+albedo_color = Color(0.4, 0.25, 0.15, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a2u2q"]
+albedo_color = Color(0.3, 0.3, 0.3, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vu46q"]
+albedo_color = Color(0.1, 0.1, 0.1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6gfb2"]
+albedo_color = Color(0.2, 0.5, 0.8, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w67gj"]
+albedo_color = Color(0.8, 0.8, 0.85, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbfjg"]
+albedo_color = Color(0.8, 0.4, 0.2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pf3hw"]
+albedo_color = Color(0.2, 0.6, 0.2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l2lt4"]
+albedo_color = Color(0.9, 0.9, 0.9, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32a3d"]
+albedo_color = Color(1, 1, 0.5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnp6n"]
+albedo_color = Color(0.9, 0.2, 0.2, 1)
+
+[node name="StudioWorld" type="Node3D" unique_id=981969615]
+script = ExtResource("1_2b22j")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2013664427]
+transform = Transform3D(0.70710677, 0.49999997, -0.49999997, 0, 0.70710677, 0.70710677, 0.70710677, -0.49999997, 0.49999997, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=249414050]
+transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=575829397]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+projection = 1
+size = 12.0
+
+[node name="Environment" type="Node3D" parent="." unique_id=1066819457]
+
+[node name="Floor" type="CSGBox3D" parent="Environment" unique_id=252749115]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+size = Vector3(12, 0.2, 12)
+material = SubResource("StandardMaterial3D_apyr4")
+
+[node name="WallN" type="CSGBox3D" parent="Environment" unique_id=375306727]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -5.8)
+size = Vector3(12, 4, 0.4)
+material = SubResource("StandardMaterial3D_xli2w")
+
+[node name="WallW" type="CSGBox3D" parent="Environment" unique_id=1700084520]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8, 2, 0)
+size = Vector3(0.4, 4, 12)
+material = SubResource("StandardMaterial3D_xli2w")
+
+[node name="Furniture" type="Node3D" parent="." unique_id=731077064]
+
+[node name="Desk" type="CSGCombiner3D" parent="Furniture" unique_id=286337521]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2)
+
+[node name="@CSGBox3D@11" type="CSGBox3D" parent="Furniture/Desk" unique_id=1517250654]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+size = Vector3(2.4, 0.1, 1.2)
+material = SubResource("StandardMaterial3D_5eijy")
+
+[node name="@CSGBox3D@12" type="CSGBox3D" parent="Furniture/Desk" unique_id=465326469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0.45, -0.5)
+size = Vector3(0.1, 0.9, 0.1)
+material = SubResource("StandardMaterial3D_a2u2q")
+
+[node name="@CSGBox3D@13" type="CSGBox3D" parent="Furniture/Desk" unique_id=1017488939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0.45, 0.5)
+size = Vector3(0.1, 0.9, 0.1)
+material = SubResource("StandardMaterial3D_a2u2q")
+
+[node name="@CSGBox3D@14" type="CSGBox3D" parent="Furniture/Desk" unique_id=397610523]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.45, -0.5)
+size = Vector3(0.1, 0.9, 0.1)
+material = SubResource("StandardMaterial3D_a2u2q")
+
+[node name="@CSGBox3D@15" type="CSGBox3D" parent="Furniture/Desk" unique_id=572932871]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.45, 0.5)
+size = Vector3(0.1, 0.9, 0.1)
+material = SubResource("StandardMaterial3D_a2u2q")
+
+[node name="@CSGBox3D@16" type="CSGBox3D" parent="Furniture/Desk" unique_id=37593341]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.4, 0)
+size = Vector3(0.6, 0.8, 1.1)
+material = SubResource("StandardMaterial3D_5eijy")
+
+[node name="@CSGBox3D@17" type="CSGBox3D" parent="Furniture/Desk" unique_id=1428277209]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 1.3, -0.2)
+size = Vector3(0.8, 0.5, 0.05)
+material = SubResource("StandardMaterial3D_vu46q")
+
+[node name="@CSGBox3D@18" type="CSGBox3D" parent="Furniture/Desk" unique_id=1502681889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 1.3, -0.19)
+size = Vector3(0.75, 0.45, 0.06)
+material = SubResource("StandardMaterial3D_6gfb2")
+
+[node name="@CSGBox3D@19" type="CSGBox3D" parent="Furniture/Desk" unique_id=502163476]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 1.05, -0.3)
+size = Vector3(0.2, 0.3, 0.1)
+material = SubResource("StandardMaterial3D_vu46q")
+
+[node name="@CSGBox3D@20" type="CSGBox3D" parent="Furniture/Desk" unique_id=2141849155]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.97, 0.3)
+size = Vector3(0.6, 0.05, 0.2)
+material = SubResource("StandardMaterial3D_vu46q")
+
+[node name="Chair" type="CSGCombiner3D" parent="Furniture/Desk" unique_id=1018996272]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0, 0.8)
+
+[node name="@CSGBox3D@21" type="CSGBox3D" parent="Furniture/Desk/Chair" unique_id=1569970372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+size = Vector3(0.6, 0.1, 0.6)
+material = SubResource("StandardMaterial3D_vu46q")
+
+[node name="@CSGBox3D@22" type="CSGBox3D" parent="Furniture/Desk/Chair" unique_id=21287692]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0.25)
+size = Vector3(0.6, 0.6, 0.1)
+material = SubResource("StandardMaterial3D_vu46q")
+
+[node name="@CSGBox3D@23" type="CSGBox3D" parent="Furniture/Desk/Chair" unique_id=876689110]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+size = Vector3(0.1, 0.5, 0.1)
+material = SubResource("StandardMaterial3D_a2u2q")
+
+[node name="@CSGBox3D@24" type="CSGBox3D" parent="Furniture/Desk/Chair" unique_id=1952401651]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
+size = Vector3(0.5, 0.05, 0.5)
+material = SubResource("StandardMaterial3D_a2u2q")
+
+[node name="MeetingTable" type="CSGCombiner3D" parent="Furniture" unique_id=1057921919]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="@CSGCylinder3D@25" type="CSGCylinder3D" parent="Furniture/MeetingTable" unique_id=404340196]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+radius = 1.2
+height = 0.1
+material = SubResource("StandardMaterial3D_5eijy")
+
+[node name="@CSGCylinder3D@26" type="CSGCylinder3D" parent="Furniture/MeetingTable" unique_id=1985085609]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+radius = 0.2
+height = 0.8
+material = SubResource("StandardMaterial3D_a2u2q")
+
+[node name="Reception" type="CSGCombiner3D" parent="Furniture" unique_id=693136950]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 4)
+
+[node name="@CSGBox3D@27" type="CSGBox3D" parent="Furniture/Reception" unique_id=45853739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+size = Vector3(2.5, 1.2, 0.3)
+material = SubResource("StandardMaterial3D_w67gj")
+
+[node name="@CSGBox3D@28" type="CSGBox3D" parent="Furniture/Reception" unique_id=540646027]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0.6, -0.6)
+size = Vector3(0.3, 1.2, 1.5)
+material = SubResource("StandardMaterial3D_w67gj")
+
+[node name="@CSGBox3D@29" type="CSGBox3D" parent="Furniture/Reception" unique_id=474657395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+size = Vector3(2.6, 0.05, 0.4)
+material = SubResource("StandardMaterial3D_5eijy")
+
+[node name="Plant" type="CSGCombiner3D" parent="Furniture" unique_id=1988512288]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
+
+[node name="@CSGCylinder3D@30" type="CSGCylinder3D" parent="Furniture/Plant" unique_id=2138000737]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+radius = 0.4
+height = 0.6
+material = SubResource("StandardMaterial3D_xbfjg")
+
+[node name="@CSGBox3D@31" type="CSGBox3D" parent="Furniture/Plant" unique_id=968908386]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+size = Vector3(0.8, 0.8, 0.8)
+material = SubResource("StandardMaterial3D_pf3hw")
+
+[node name="@CSGBox3D@32" type="CSGBox3D" parent="Furniture/Plant" unique_id=552156535]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 1.4, -0.1)
+size = Vector3(0.6, 0.6, 0.6)
+material = SubResource("StandardMaterial3D_pf3hw")
+
+[node name="ProductionBoard" type="CSGCombiner3D" parent="Furniture" unique_id=326873292]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6, 2, -2)
+
+[node name="@CSGBox3D@33" type="CSGBox3D" parent="Furniture/ProductionBoard" unique_id=409718209]
+size = Vector3(0.1, 1.5, 2.5)
+material = SubResource("StandardMaterial3D_l2lt4")
+
+[node name="@CSGBox3D@34" type="CSGBox3D" parent="Furniture/ProductionBoard" unique_id=653700088]
+size = Vector3(0.12, 1.6, 2.6)
+material = SubResource("StandardMaterial3D_5eijy")
+
+[node name="@CSGBox3D@35" type="CSGBox3D" parent="Furniture/ProductionBoard" unique_id=1760974574]
+operation = 2
+size = Vector3(0.15, 1.5, 2.5)
+
+[node name="@CSGBox3D@36" type="CSGBox3D" parent="Furniture/ProductionBoard" unique_id=574130437]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0.4, 0.8)
+size = Vector3(0.02, 0.2, 0.2)
+material = SubResource("StandardMaterial3D_32a3d")
+
+[node name="MoviePoster" type="CSGBox3D" parent="Furniture" unique_id=426006014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -5.75)
+size = Vector3(1.5, 2, 0.05)
+material = SubResource("StandardMaterial3D_6gfb2")
+
+[node name="Lightstand" type="CSGCombiner3D" parent="Furniture" unique_id=1194243195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 1)
+
+[node name="@CSGCylinder3D@37" type="CSGCylinder3D" parent="Furniture/Lightstand" unique_id=640227229]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+radius = 0.05
+material = SubResource("StandardMaterial3D_a2u2q")
+
+[node name="@CSGBox3D@38" type="CSGBox3D" parent="Furniture/Lightstand" unique_id=1497615945]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+size = Vector3(0.5, 0.4, 0.2)
+material = SubResource("StandardMaterial3D_vu46q")
+
+[node name="StudioSign" type="CSGBox3D" parent="Furniture" unique_id=1600765164]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -5.7)
+size = Vector3(3, 0.8, 0.2)
+material = SubResource("StandardMaterial3D_pnp6n")
+
+[node name="Characters" type="Node3D" parent="." unique_id=1745593471]
+
+[node name="InteractionLayer" type="Node3D" parent="." unique_id=378442721]
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1419545316 instance=ExtResource("2_hunx7")]

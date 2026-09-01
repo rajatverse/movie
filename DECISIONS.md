@@ -48,6 +48,15 @@ simulated competitor release-date-clash system, investor/co-production
 financing. All judged too heavy to build and debug solo without a coding
 background. Revisit only if the game is live and doing well.
 
+**Game Presentation & Art Style (Added 2026-09-01)**
+Portrait Android layout with a stylized low-poly 3D art direction.
+
+**World Structure (Added 2026-09-01)**
+The primary screen is a persistent 2.5D isometric studio world. Menus and management panels are layered on top of or load from this 3D environment to avoid a pure text-based dashboard feel.
+
+**Player Flow (Added 2026-09-01)**
+Strict linear flow established: Launch -> Main Menu -> Studio Setup (Name, Founder, City) -> New Game Init -> Studio Intro -> Game World. The Game World serves as the main hub going forward.
+
 **Architecture: two-layer FSM (enum + match), not Behavior Trees**
 Behavior Trees suit autonomous NPC decision-making; nothing in this game
 needs that, since the player drives every state transition. Plain FSMs are

@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="MovieTycoon"
-run/main_scene="res://scenes/main/hub.tscn"
+run/main_scene="res://scenes/boot/boot.tscn"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
@@ -27,6 +27,8 @@ StaffManager="*res://autoloads/staff_manager.gd"
 ContractManager="*res://autoloads/contract_manager.gd"
 OfficeManager="*res://autoloads/office_manager.gd"
 MovieManager="*res://autoloads/movie_manager.gd"
+GameData="*res://autoloads/game_data.gd"
+SaveManager="*res://autoloads/save_manager.gd"
 
 [display]
 

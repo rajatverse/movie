@@ -1,0 +1,68 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/world/characters/staff_character.gd" id="1_ehk2h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0koyk"]
+albedo_color = Color(0.2, 0.4, 0.8, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xrt1t"]
+albedo_color = Color(0.9, 0.75, 0.65, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhibt"]
+albedo_color = Color(0.2, 0.1, 0.05, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_acq4y"]
+albedo_color = Color(0.15, 0.15, 0.15, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jfl0"]
+albedo_color = Color(0.1, 0.1, 0.1, 1)
+
+[node name="StaffCharacter" type="Node3D" unique_id=373464703]
+script = ExtResource("1_ehk2h")
+
+[node name="Body" type="CSGCombiner3D" parent="." unique_id=537685980]
+
+[node name="@CSGBox3D@2" type="CSGBox3D" parent="Body" unique_id=1373957156]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+size = Vector3(0.4, 0.5, 0.25)
+material = SubResource("StandardMaterial3D_0koyk")
+
+[node name="@CSGBox3D@3" type="CSGBox3D" parent="Body" unique_id=916733570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
+size = Vector3(0.3, 0.3, 0.3)
+material = SubResource("StandardMaterial3D_xrt1t")
+
+[node name="@CSGBox3D@4" type="CSGBox3D" parent="Body" unique_id=688262975]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45, 0)
+size = Vector3(0.32, 0.1, 0.32)
+material = SubResource("StandardMaterial3D_jhibt")
+
+[node name="@CSGBox3D@5" type="CSGBox3D" parent="Body" unique_id=433197812]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.85, 0)
+size = Vector3(0.15, 0.45, 0.15)
+material = SubResource("StandardMaterial3D_xrt1t")
+
+[node name="@CSGBox3D@6" type="CSGBox3D" parent="Body" unique_id=1711771882]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.85, 0)
+size = Vector3(0.15, 0.45, 0.15)
+material = SubResource("StandardMaterial3D_xrt1t")
+
+[node name="@CSGBox3D@7" type="CSGBox3D" parent="Body" unique_id=220251214]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.35, 0)
+size = Vector3(0.18, 0.5, 0.18)
+material = SubResource("StandardMaterial3D_acq4y")
+
+[node name="@CSGBox3D@8" type="CSGBox3D" parent="Body" unique_id=973693597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.35, 0)
+size = Vector3(0.18, 0.5, 0.18)
+material = SubResource("StandardMaterial3D_acq4y")
+
+[node name="@CSGBox3D@9" type="CSGBox3D" parent="Body" unique_id=1711868105]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.05, 0.02)
+size = Vector3(0.18, 0.1, 0.22)
+material = SubResource("StandardMaterial3D_7jfl0")
+
+[node name="@CSGBox3D@10" type="CSGBox3D" parent="Body" unique_id=1349193221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.05, 0.02)
+size = Vector3(0.18, 0.1, 0.22)
+material = SubResource("StandardMaterial3D_7jfl0")

@@ -1,0 +1,132 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj320v9x"]
+
+[ext_resource type="Script" path="res://scenes/menu/studio_confirmation.gd" id="1_conf"]
+
+[node name="StudioConfirmation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_conf")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.12, 0.15, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = 80.0
+offset_right = -60.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "YOUR STUDIO"
+horizontal_alignment = 1
+
+[node name="Panel" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="LblStudioName" type="Label" parent="VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Studio Name"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxFounder" type="HBoxContainer" parent="VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LblFounder" type="Label" parent="VBoxContainer/Panel/VBoxContainer/HBoxFounder"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+text = "Founder"
+
+[node name="LblFounderValue" type="Label" parent="VBoxContainer/Panel/VBoxContainer/HBoxFounder"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="HBoxCity" type="HBoxContainer" parent="VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LblCity" type="Label" parent="VBoxContainer/Panel/VBoxContainer/HBoxCity"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+text = "City"
+
+[node name="LblCityValue" type="Label" parent="VBoxContainer/Panel/VBoxContainer/HBoxCity"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mumbai"
+horizontal_alignment = 2
+
+[node name="HBoxType" type="HBoxContainer" parent="VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LblType" type="Label" parent="VBoxContainer/Panel/VBoxContainer/HBoxType"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+text = "Studio"
+
+[node name="LblTypeValue" type="Label" parent="VBoxContainer/Panel/VBoxContainer/HBoxType"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Independent"
+horizontal_alignment = 2
+
+[node name="HBoxCapital" type="HBoxContainer" parent="VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LblCapital" type="Label" parent="VBoxContainer/Panel/VBoxContainer/HBoxCapital"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+text = "Capital"
+
+[node name="LblCapitalValue" type="Label" parent="VBoxContainer/Panel/VBoxContainer/HBoxCapital"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "₹10,000"
+horizontal_alignment = 2
+
+[node name="BtnStart" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "START GAME"
+
+[node name="BtnBack" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "BACK"
