@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DistributorData" load_steps=2 format=3 uid="uid://distributor_3_national"]
+
+[ext_resource type="Script" path="res://resources/distributor_data.gd" id="1_distributor"]
+
+[resource]
+script = ExtResource("1_distributor")
+id = "national"
+display_name = "National Screen"
+reach = 1.2
+screen_access = 500
+popularity = 70.0
+revenue_share = 0.5
+min_reputation = 50

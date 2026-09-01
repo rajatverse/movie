@@ -6,11 +6,13 @@ const StaffManagerTestScript = preload("res://scripts/tests/staff_manager_test.g
 const ContractManagerTestScript = preload("res://scripts/tests/contract_manager_test.gd")
 const OfficeManagerTestScript = preload("res://scripts/tests/office_manager_test.gd")
 const MovieManagerTestScript = preload("res://scripts/tests/movie_manager_test.gd")
+const ReleaseManagerTestScript = preload("res://scripts/tests/release_manager_test.gd")
 
 func _ready() -> void:
 	print("==============================================")
 	print("  MOVIE TYCOON — AUTOMATED HEADLESS TEST SUITE")
 	print("==============================================")
+	print("Root children: ", get_tree().root.get_children())
 	
 	var total_passes: int = 0
 	var total_fails: int = 0
@@ -50,6 +52,12 @@ func _ready() -> void:
 	var movie_res = movie_test.run_all()
 	total_passes += movie_res["passes"]
 	total_fails += movie_res["fails"]
+	
+	var release_test = ReleaseManagerTestScript.new()
+	add_child(release_test)
+	var release_res = release_test.run_all()
+	total_passes += release_res["passes"]
+	total_fails += release_res["fails"]
 	
 	print("\n==============================================")
 	print("  TOTAL RESULTS: %d PASSED, %d FAILED" % [total_passes, total_fails])

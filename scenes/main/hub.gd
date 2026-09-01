@@ -7,10 +7,10 @@ extends Control
 @onready var tab_container: TabContainer = $VBoxContainer/MainContent/TabContainer
 
 @onready var btn_office: Button = $VBoxContainer/BottomNav/MarginContainer/HBoxContainer/BtnOffice
-@onready var btn_movies: Button = $VBoxContainer/BottomNav/MarginContainer/HBoxContainer/BtnMovies
-@onready var btn_people: Button = $VBoxContainer/BottomNav/MarginContainer/HBoxContainer/BtnPeople
-@onready var btn_finance: Button = $VBoxContainer/BottomNav/MarginContainer/HBoxContainer/BtnFinance
-@onready var btn_news: Button = $VBoxContainer/BottomNav/MarginContainer/HBoxContainer/BtnNews
+@onready var btn_contracts: Button = $VBoxContainer/BottomNav/MarginContainer/HBoxContainer/BtnMovies
+@onready var btn_staff: Button = $VBoxContainer/BottomNav/MarginContainer/HBoxContainer/BtnPeople
+@onready var btn_release: Button = $VBoxContainer/BottomNav/MarginContainer/HBoxContainer/BtnFinance
+@onready var btn_movies: Button = $VBoxContainer/BottomNav/MarginContainer/HBoxContainer/BtnNews
 
 @onready var notification_panel: PanelContainer = $NotificationPanel
 @onready var notification_label: Label = $NotificationPanel/MarginContainer/HBoxContainer/Label
@@ -28,12 +28,12 @@ func _ready() -> void:
 	notification_close_btn.pressed.connect(_on_notification_close)
 	notification_panel.visible = false
 	
-	# Connect bottom navigation (Movies=0, Office=1, Contracts=2, Staff=3)
+	# Connect bottom navigation (Movies=0, Office=1, Contracts=2, Staff=3, Release=4)
 	btn_movies.pressed.connect(func(): tab_container.current_tab = 0)
 	btn_office.pressed.connect(func(): tab_container.current_tab = 1)
-	btn_people.pressed.connect(func(): tab_container.current_tab = 3)
-	btn_finance.pressed.connect(func(): print("Finance feature not yet implemented"))
-	btn_news.pressed.connect(func(): print("News feature not yet implemented"))
+	btn_contracts.pressed.connect(func(): tab_container.current_tab = 2)
+	btn_staff.pressed.connect(func(): tab_container.current_tab = 3)
+	btn_release.pressed.connect(func(): tab_container.current_tab = 4)
 	
 	_update_top_bar()
 

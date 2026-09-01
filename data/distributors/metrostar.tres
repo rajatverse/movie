@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DistributorData" load_steps=2 format=3 uid="uid://distributor_1_metrostar"]
+
+[ext_resource type="Script" path="res://resources/distributor_data.gd" id="1_distributor"]
+
+[resource]
+script = ExtResource("1_distributor")
+id = "metrostar"
+display_name = "MetroStar Distribution"
+reach = 0.5
+screen_access = 50
+popularity = 30.0
+revenue_share = 0.3
+min_reputation = 0

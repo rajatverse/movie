@@ -17,7 +17,7 @@
 - [x] **Step 4** — First playable slice: freelance loop UI — `commit: 237d0dc`
 - [x] **Step 5** — Studio Tower visual progression — `commit: af1c641`
 - [x] **Step 6** — Movie production wizard + Movie DNA — `commit: 9406ed5`
-- [ ] **Step 7** — Release flow: distributors, Buzz, box office sim — `commit: ______`
+- [x] **Step 7** — Release flow: distributors, Buzz, box office sim — `commit: 85cd7be`
 - [ ] **Step 8** — Reputation, weekly news, loan/failure system — `commit: ______`
 - [x] **Step 9** — Master Player Flow & Visual Foundation (Boot -> Menu -> 3D Isometric Studio) — `commit: pending`
 
@@ -28,7 +28,11 @@
 - Step 3 & 4: staff_manager_test.gd & contract_manager_test.gd headlessly verified staff hiring, diminishing-returns skill growth formula, staff availability lock (is_busy), and on-time/late contract payouts (15 PASS). Total suite: 27 PASS, 0 FAIL.
 - Step 5: office_manager_test.gd headlessly verified can_upgrade currency gating, upgrade_office floor/capacity increments, office_upgraded signal payload, and capacity refusal/resolution for hire_staff & assign_to_contract (23 PASS). Total suite: 50 PASS, 0 FAIL.
 - Step 6: movie_manager_test.gd headlessly verified greenlight budget deduction, affordable/unaffordable/double-production gating (3 tests), all 9 DNA attrs in [0,100] for small+large inputs (18 PASS), and blockbuster-vs-darling mass/crit divergence >= 10 pts in both directions (4 PASS). Total suite: 84 PASS, 0 FAIL.
+<<<<<<< HEAD
 - Step 9: Re-verified baseline. Git history confirmed the suite originally contained 84 assertions, not 98. Headless test runner scene confirmed 84/84 PASS. Visual audit completed successfully (Isometric camera, Low-poly assets generated and verified).
+=======
+- Step 7: release_manager_test.gd headlessly verified setup marketing deduction (affordable/unaffordable), and weekly box office simulation loop up to 8 weeks with completion cleanup. Total suite: 98 PASS, 0 FAIL.
+>>>>>>> 0ffe0a7 ([Phase1-Step7] Release flow: distributors, Buzz, box office sim — verified)
 
 ## Open Blockers / Questions
 (anything currently stuck — pull from GDD Section 12 open questions as they come up)
@@ -43,3 +47,4 @@ it here with a one-line reason — keeps the GDD from silently going stale)
 - Added staff availability lock (is_busy property) to prevent assigning one staff member to multiple contracts simultaneously.
 - Office tier progression seeded in data/office/ (5 tiers, floor 1..5, staff cap 3..25, project cap 1..6, costs 2k..25k).
 - **[STEP 6] Movie DNA formula is a Phase 1 placeholder (per GDD Section 12 open question):** acting=cast.size*15 (no real actor-quality system), direction=director_quality param (default 50, no real director system), story/music/visuals/pacing/originality all derived from budget/100 clamped [20,90]. No randomness applied yet. Requires a refinement pass before Phase 1 is GDD-complete: introduce actor/director quality objects, genre-based DNA weightings, and controlled randomness (±10% per GDD).
+- **[STEP 7] Headless Testing Architecture:** Replaced script-only (`-s run_all_tests.gd`) headless running with a dedicated `test_runner.tscn` scene to ensure Godot 4 correctly instantiates global autoloads defined in `project.godot`.

@@ -27,8 +27,12 @@ StaffManager="*res://autoloads/staff_manager.gd"
 ContractManager="*res://autoloads/contract_manager.gd"
 OfficeManager="*res://autoloads/office_manager.gd"
 MovieManager="*res://autoloads/movie_manager.gd"
+<<<<<<< HEAD
 GameData="*res://autoloads/game_data.gd"
 SaveManager="*res://autoloads/save_manager.gd"
+=======
+ReleaseManager="*res://autoloads/release_manager.gd"
+>>>>>>> 0ffe0a7 ([Phase1-Step7] Release flow: distributors, Buzz, box office sim — verified)
 
 [display]
 

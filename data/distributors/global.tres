@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DistributorData" load_steps=2 format=3 uid="uid://distributor_4_global"]
+
+[ext_resource type="Script" path="res://resources/distributor_data.gd" id="1_distributor"]
+
+[resource]
+script = ExtResource("1_distributor")
+id = "global"
+display_name = "Global Cinema Partners"
+reach = 2.0
+screen_access = 1000
+popularity = 95.0
+revenue_share = 0.6
+min_reputation = 100

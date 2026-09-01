@@ -1,0 +1,182 @@
+[gd_scene load_steps=2 format=3 uid="uid://movie_release_scene"]
+
+[ext_resource type="Script" path="res://scenes/ui/movie_release.gd" id="1_release"]
+
+[node name="MovieRelease" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_release")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="EmptyLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "No movies are ready for release."
+horizontal_alignment = 1
+
+[node name="SetupPanel" type="VBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/SetupPanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "RELEASE SETUP"
+horizontal_alignment = 1
+
+[node name="LabelMovie" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/SetupPanel"]
+layout_mode = 2
+text = "Select Movie:"
+
+[node name="MovieSelect" type="OptionButton" parent="ScrollContainer/MarginContainer/VBoxContainer/SetupPanel"]
+layout_mode = 2
+
+[node name="LabelDistributor" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/SetupPanel"]
+layout_mode = 2
+text = "Select Distributor:"
+
+[node name="DistributorSelect" type="OptionButton" parent="ScrollContainer/MarginContainer/VBoxContainer/SetupPanel"]
+layout_mode = 2
+
+[node name="LabelMarketing" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/SetupPanel"]
+layout_mode = 2
+text = "Select Marketing Campaign:"
+
+[node name="MarketingSelect" type="OptionButton" parent="ScrollContainer/MarginContainer/VBoxContainer/SetupPanel"]
+layout_mode = 2
+
+[node name="CostLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/SetupPanel"]
+layout_mode = 2
+text = "Marketing Cost: 0"
+horizontal_alignment = 1
+
+[node name="ReleaseButton" type="Button" parent="ScrollContainer/MarginContainer/VBoxContainer/SetupPanel"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "START RELEASE"
+
+[node name="ActivePanel" type="VBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Header" type="VBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/ActivePanel"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/ActivePanel/Header"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "MOVIE TITLE"
+horizontal_alignment = 1
+
+[node name="InfoLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/ActivePanel/Header"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+text = "Distributor: XYZ | Marketing: TV | Buzz: 80"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer/ActivePanel"]
+layout_mode = 2
+
+[node name="WeekLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/ActivePanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "WEEK 1"
+horizontal_alignment = 1
+
+[node name="Stats" type="VBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/ActivePanel"]
+layout_mode = 2
+
+[node name="ScreensLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/ActivePanel/Stats"]
+layout_mode = 2
+text = "Screens: 100"
+
+[node name="AudienceLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/ActivePanel/Stats"]
+layout_mode = 2
+text = "Week Audience: 0"
+
+[node name="BOLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/ActivePanel/Stats"]
+layout_mode = 2
+text = "Week Box Office: 0"
+
+[node name="HSeparator2" type="HSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer/ActivePanel"]
+layout_mode = 2
+
+[node name="Reviews" type="VBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/ActivePanel"]
+layout_mode = 2
+
+[node name="CriticLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/ActivePanel/Reviews"]
+layout_mode = 2
+text = "Critics: 4.5 / 5.0"
+
+[node name="AudienceReviewLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/ActivePanel/Reviews"]
+layout_mode = 2
+text = "Audience: 4.0 / 5.0"
+
+[node name="WOMLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/ActivePanel/Reviews"]
+layout_mode = 2
+text = "Word of Mouth:
+██████░░░░"
+
+[node name="HSeparator3" type="HSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer/ActivePanel"]
+layout_mode = 2
+
+[node name="TotalBOLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/ActivePanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Total Box Office: 0"
+horizontal_alignment = 1
+
+[node name="NextWeekButton" type="Button" parent="ScrollContainer/MarginContainer/VBoxContainer/ActivePanel"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "NEXT WEEK"
+
+[node name="ResultPanel" type="VBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="ResultTitleLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/ResultPanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "FINAL RESULTS"
+horizontal_alignment = 1
+
+[node name="ClassLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/ResultPanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Result: Hit"
+horizontal_alignment = 1
+
+[node name="DetailsLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/ResultPanel"]
+layout_mode = 2
+text = "Details go here"
+
+[node name="BackButton" type="Button" parent="ScrollContainer/MarginContainer/VBoxContainer/ResultPanel"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "BACK TO RELEASES"

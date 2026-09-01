@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DistributorData" load_steps=2 format=3 uid="uid://distributor_2_horizon"]
+
+[ext_resource type="Script" path="res://resources/distributor_data.gd" id="1_distributor"]
+
+[resource]
+script = ExtResource("1_distributor")
+id = "horizon"
+display_name = "Horizon Pictures"
+reach = 0.8
+screen_access = 200
+popularity = 50.0
+revenue_share = 0.4
+min_reputation = 20
